@@ -15,11 +15,20 @@ using namespace std;
 
 class Tile {
 public:
-    bool operator==(const Tile &t);
-    virtual bool action( Player& player );
+    string name;
+    friend bool operator==(const Tile &lhs, const Tile &rhs) {
+        if (lhs.name == rhs.name) return true;
+        return false;
+    };
+    virtual bool action(Player& player );
     virtual Tile* clone();
-    ostream& operator<<(const Tile &t);
-    void desert();
+    
+    friend ostream& operator<<(ostream &os, Tile& tile1) {
+        os << tile1.name;
+        return os;
+    }
 };
+
+
 
 #endif /* defined(__C___Project__Tile__) */
