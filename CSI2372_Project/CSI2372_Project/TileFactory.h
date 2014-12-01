@@ -1,5 +1,5 @@
 //
-//  TileFactory.h
+//  TileFactory.h -> DONE
 //  C++ Project
 //
 //  Created by Nicolas Dubus on 2014-11-20.
@@ -11,15 +11,17 @@
 
 #include <stdio.h>
 #include "Tile.h"
-#include "Tile.cpp"
+#include <vector>
+#include <iostream>
 
 class TileFactory {
-    int _nTiles;
-    static bool instanceFlag;
+    bool instanceFlag = false;
+    vector<Tile*> tileContainer;
     TileFactory(int);
+    Tile* getTile();
 public:
+    vector<Tile*>::iterator it;
     static TileFactory *get(int);
-
     Tile* next(); //return new tile
 };
 

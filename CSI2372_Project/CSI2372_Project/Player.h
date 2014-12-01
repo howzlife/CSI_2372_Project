@@ -1,5 +1,5 @@
 //
-//  Player.h
+//  Player.h -> DONE
 //  C++ Project
 //
 //  Created by Nicolas Dubus on 2014-11-11.
@@ -10,6 +10,7 @@
 #define __C___Project__Player__
 
 #include <stdio.h>
+#include <string>
 #include <iostream>
 using namespace std;
 
@@ -23,10 +24,15 @@ public:
     int cart;
     int food;
     string name;
-    Player();
+    
+    
+    Player(string);
     bool canAct() const;
     bool pay(Player& player);
     void eat();
+    int getSumGoods() { return ruby + spice + fabric + jewel; };
+    int getCartCapacity() { return (cart - (this->getSumGoods()));};
+    friend ostream& operator<<(ostream& outstream, Player &player);
 };
 
 #endif /* defined(__C___Project__Player__) */
